@@ -1,11 +1,14 @@
 var http = require('http');
 var helloword = '';
-for(var i = 0; i < 1024 * 10; i++){
-    helloword += 'a';
-}
+//for(var i = 0; i < 1024 * 10; i++){
+//    helloword += 'a';
+//}
 //helloword = new Buffer(helloword);
+helloword = "hello world";
 http.createServer(function(req, res){
-    res.writeHead(200);
+    res.writeHead(200, {
+        'Content-Type': 'text/plain'
+    });
     res.end(helloword);
 }).listen(8000);
 
